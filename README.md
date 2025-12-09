@@ -1,4 +1,4 @@
-#devTinder
+#devTinderUI
 
 - Create a vite + react application
 - Remove unnecessary code and create a Hello World app
@@ -9,7 +9,15 @@
 - Create BrowserRouter > Routes > Route=/ Body > RouteChildren
 - Create a outlet in Bosy component to render all the children routes inside the body component which was initialized in app.jsx
 - Create a footer using daisy UI
-- Create a login page
+- Create a login page using daisy UI
+- Install axios
+- CORS - install cors in backend => Add middleware to frontend with configurations: origin and credentials: true
+- Whenever we are making API call so pass axios => {withCredentials: true}
+- Install react-redux + @reduxjs/toolkit => configureStore(appstore) => provider(in app.js) => createSlice(adding actions like addUser, removeUser) => add reducer to store
+- Add redux devtools in chrome
+- Login and see if our data is coming properly in the store
+- Navbar should update as soon as user logs in
+- Refactor our code to add constants file  + create a components folder
 
 
 
