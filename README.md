@@ -20,9 +20,10 @@
 - Refactor our code to add constants file  + create a components folder
 - We should not be access other routes without login
 - if token is not present, redirect user to login page
-- Logout
+- Logout (in production, while raising PRs, we can add feat: logout and bug: logout as commit message)
 - Profile Page
-
+- Get the feed and add the feed in the store
+- Build the user card on feed
 
 
 Body
