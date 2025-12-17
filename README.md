@@ -29,13 +29,14 @@
 - See all my connections
 - New Page - See all my connection Requests
 - Feature - Aceept/Reject Connection Requests
-
-
-Remaining:-
 - Send/ignore the user card from Feed
 - Signup New User
-- Profile view when we click on the connections(by myself)
 - E2E Testing
+
+Remaining:-
+- Profile view when we click on the connections(by myself)
+- bug bix
+
 
 Body
     Navbar
