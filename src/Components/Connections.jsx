@@ -9,7 +9,12 @@ import { useSelector } from 'react-redux';
 const Connections = () => {
 
     const connections = useSelector((store) => store.connection);
+
+
     const dispatch = useDispatch();
+
+
+
 
 
     const fetchConnections = async () => {
