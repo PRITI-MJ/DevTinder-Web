@@ -46,7 +46,7 @@ Body
     Router=/profile => Profile
 
 
-    #Deployment
+    # Deployment
 
     -Signup on AWS
     - Launch instance
@@ -73,5 +73,40 @@ Body
         - pm2 logs (to check if there is any error while running the pm2 command)
         - pm2 flush npm
         - pm2 list, pm2 flush <name>, pm2 stop <name>, pm2 delete <name>
+        - config nginx - etc/nginx/sites-available/default
+        - restart nginx(sudo systemctl restart nginx)
+        - Modify the BASE_URL in frontend project to "/api"
+
+
+
+
+        Frontend = http://13.54.47.91/
+        Backend = http://13.54.47.91:2501/
+
+        Domain name = devtinder.com => 13.54.47.91
+
+        Frontend = devtinder.com
+        Backend = devtinder.com:2501 => devtinder.com/api
+
+        # nginx config:
+
+            server_name 13.54.47.91;
+
+
+            location /api/ {
+                proxy_pass http://127.0.0.1:2501/;
+
+                proxy_http_version 1.1;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+
+                # Needed for auth, cookies, websockets, etc.
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+            }
+
+
         
 
