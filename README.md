@@ -63,4 +63,15 @@ Body
         - sudo systemctl enable nginx
         - Copy code from dist(build file) to /var/www/html/
         - sudo scp -r dist/* /var/www/html/
-        - Enable port 80 of our instance
+        - Enable port :80 of our instance
+
+    - Backend
+        - updated DB password
+        - allowed ec2 instance public IP on mongodb server
+        - pm2 install pm2 -g
+        - pm2 start npm --name "devtinder-backend" -- start ("devtinder-backend" - can be any name) , (behind the scene => npm start)
+        - pm2 logs (to check if there is any error while running the pm2 command)
+        - pm2 flush npm
+        - pm2 list, pm2 flush <name>, pm2 stop <name>, pm2 delete <name>
+        
+
