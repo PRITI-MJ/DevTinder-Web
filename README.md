@@ -46,7 +46,7 @@ Body
     Router=/profile => Profile
 
 
-    # Deployment
+# Deployment
 
     -Signup on AWS
     - Launch instance
@@ -88,7 +88,7 @@ Body
         Frontend = devtinder.com
         Backend = devtinder.com:2501 => devtinder.com/api
 
-        # nginx config:
+# nginx config:
 
             server_name 13.54.47.91;
 
@@ -106,6 +106,26 @@ Body
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "upgrade";
             }
+
+
+# Adding a custom Domain Name
+
+    - purchased domain name from godaddy
+    - signup on cloudfare & add a new domain name
+    - change the nameservers on godaddy and point it to cloudflare
+    - wait for sometime till your nameservers are updated ~ 15 minutes
+    - DNS record: A devtinder.in => 13.54.47.91
+    - Enable SSl for website
+
+
+# Sending Emails via SES
+
+    - Create a IAM user
+    - Give Access to AmazonSESFullAccess
+    - Verify your domain name
+    - Verify an email name
+    - Install AWS SDK - V3
+    
 
 
         
