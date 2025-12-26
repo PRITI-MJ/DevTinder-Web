@@ -125,7 +125,13 @@ Body
     - Verify your domain name
     - Verify an email name
     - Install AWS SDK - V3
-    
+    - Setup SesClient
+    - Access Credentials should be created in IAM under SecurityCredentials Tab
+    - Add the credentials to the env file
+    - Write code for SESClient
+    - Write code for sending email adress
+    - Make the email dynamic by passing more params to the run function
+
 
 
         
