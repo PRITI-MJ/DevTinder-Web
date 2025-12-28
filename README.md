@@ -130,7 +130,7 @@ Body
     - Add the credentials to the env file
     - Write code for SESClient
     - Write code for sending email adress
-    - Make the email dynamic by passing more params to the run function
+    - Make the email dynamic by passing more params to the  run function
 
 
 
