@@ -133,6 +133,21 @@ Body
     - Make the email dynamic by passing more params to the  run function
 
 
+# Scheduling cron jobs in NodeJs
+    - Installing node-cron
+    - Learning about cron expressions systax - crontab.guru
+    - date-fns
+    - Find all the unique email id who have got connection Request in previous day
+    - Send Email
+    - Explore queue mechanim to send bulk emails(npm-beeQueue, npm-Bull)
+    - Amazon SES Bulk Emails
+    - Make sendEmail Function dynamic with prod help though SES
+    - bee-queue & bull npm packages
+
+    
+
+
+
 
         
 
