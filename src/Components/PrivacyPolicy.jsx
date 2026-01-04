@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
                 href="mailto:support@devtinderonline.cloud"
                 className="text-blue-600 hover:underline"
               >
-                support@devtinderonline.cloud
+                Pritimukherjee650@gmail.com
               </a>
             </p>
           </section>

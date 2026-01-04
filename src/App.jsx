@@ -23,8 +23,8 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/connections" element={<Connections />} />
               <Route path="/requests" element={<Requests />} />  
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/refund-policy" element={<RefundPolicy />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/refund" element={<RefundPolicy />} />
             </Route>
         </Routes>
       </BrowserRouter>
