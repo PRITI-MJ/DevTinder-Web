@@ -144,6 +144,11 @@ Body
     - Make sendEmail Function dynamic with prod help though SES
     - bee-queue & bull npm packages
 
+
+
+# Razorpay Payment Gateway Inegration
+    - Sign up on Razorpay & complete KYC
+    - by using Frontend we can click on "PAY NOW" button, then it create a order which is sent to Backend 
     
 
 
