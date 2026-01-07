@@ -10,6 +10,7 @@ import appStore from "./utils/appStore";
 import Feed from "./Components/Feed";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import RefundPolicy from "./Components/RefundPolicy";
+import Premium from "./Components/Premium";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/requests" element={<Requests />} />  
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/premium" element={<Premium />} />
             </Route>
         </Routes>
       </BrowserRouter>

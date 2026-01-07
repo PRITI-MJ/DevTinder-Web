@@ -148,8 +148,12 @@ Body
 
 # Razorpay Payment Gateway Inegration
     - Sign up on Razorpay & complete KYC
-    - by using Frontend we can click on "PAY NOW" button, then it create a order which is sent to Backend 
-    
+    - by using Frontend we can click on "PAY NOW" button, then it opens a payment dialog box
+    - behind the scene, it make an API call to the backend to create an order because FE can't link to razorpay directly, BE sends request to razorpay to create an order with a secret key, razorpay create an order and sends back an orderID, once the order ID is recieved by the BE, its sends back the order ID to the backend.
+    - Now FE will open a payment dialog box and once successful payment is done, razorpay get to know that the payment is recieved for that particular order ID.
+    - Behind the scene, razorpay has webhook that will inform the backend that the payment is created or not for this order ID and iif the payment is successful then it will give a payment ID along with a signature.
+    - Now BE will verify that the payment is successfully completed or not. BE will mark as payment is completed.
+    - FE will sent the request to check the payment is verified or not and backend will send back whether it is success or failure.
 
 
 
