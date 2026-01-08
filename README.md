@@ -155,7 +155,16 @@ Body
     - Now BE will verify that the payment is successfully completed or not. BE will mark as payment is completed.
     - FE will sent the request to check the payment is verified or not and backend will send back whether it is success or failure.
 
-
+    - Created a UI for premium page
+    - Creating an API for create order in backend
+    - added my key and secret in env file
+    - Initialized Razorpay in utils
+    - creating order on Razorpay
+    - Create Schema and model
+    - Saved the order in payments collection
+    - Make the API dynamic
+    - Setup Raorpay webhook on our live API
+    
 
 
         
