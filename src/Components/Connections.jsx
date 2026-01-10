@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addConnection } from '../utils/ConnectionSlice';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 const Connections = () => {
 
@@ -51,15 +53,18 @@ const Connections = () => {
       {connections.map((connection) => {
         const {_id, firstName, lastName, photoUrl, age, gender, about} = connection;
         return ( 
-            <div className='flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto items-center' key={_id}>
+            <div key={_id} className='flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto items-center'>
               <div> 
                  <img alt='photo' className='w-20 h-20 rounded-full' src={photoUrl}/>
               </div>
-                <div className='text-left mx-6'>
+                <div className='text-left mx-6 flex-grow'>
                   <h2 className='font-bold text-xl'>{firstName + " " + lastName}</h2>
                   {age && gender && <p>{age + ", " + gender}</p>}
                   <p>{about}</p>
               </div>
+               <Link to={"/chat/" + _id}>
+               <button className='bg-primary p-2 rounded-xl'>Chat</button>
+               </Link> 
                 
                 
           </div>

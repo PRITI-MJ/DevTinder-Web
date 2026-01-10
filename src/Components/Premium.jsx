@@ -14,7 +14,6 @@ const Premium = () => {
         { withCredentials: true }
     );
 
-            console.log(res.data.isPremium);
             if(res.data.isPremium){
                 setIsPremium(true);
             }

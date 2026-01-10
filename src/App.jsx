@@ -11,6 +11,7 @@ import Feed from "./Components/Feed";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import RefundPolicy from "./Components/RefundPolicy";
 import Premium from "./Components/Premium";
+import Chat from "./Components/Chat";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/refund" element={<RefundPolicy />} />
               <Route path="/premium" element={<Premium />} />
+              <Route path="/chat/:targetUserId" element={<Chat/>} />
+              
             </Route>
         </Routes>
       </BrowserRouter>
