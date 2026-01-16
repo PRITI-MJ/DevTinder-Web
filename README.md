@@ -170,5 +170,10 @@ Body
     - Websockets is a server which can connect to multiple clients and they can talk to each other.(bi-directional connection)
     - Socket.io => is a library that enables low-latency(smooth and fast), bidirectional and event-based communication between a client and a server.
 
+    - Build the UI for a chat wimdow on /chat/:targetUserId
+    - Setup socket.io in backend
+    - npm i socket.io
+
+
         
 
