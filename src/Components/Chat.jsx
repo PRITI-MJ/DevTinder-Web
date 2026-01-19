@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { createSocketConnection } from '../utils/socket';
+import axios from 'axios';
+import { BASE_URL } from '../utils/constants';
+
 
 const Chat = () => {
     const { targetUserId } = useParams();
@@ -11,8 +14,31 @@ const Chat = () => {
     const user = useSelector((store) => store.user);
     const userId = user?.data?._id;
 
-     const now = new Date(); // current time
-    const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // e.g., "16:24"
+    const fetchChatMessages = async () => {
+      const chat =  await axios.get(BASE_URL + "/chat/"+targetUserId, 
+        {withCredentials: true});
+
+        console.log(chat.data.messages);
+
+        const chatMessages = chat?.data?.messages.map(msg => {
+          const {senderId, text} = msg;
+          return { 
+            firstName: senderId?.firstName, 
+            lastName:senderId?.lastName, 
+            text: text,
+            photoId: senderId?.photoUrl,
+            time: new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        });
+
+        setMessages(chatMessages);
+      
+    };
+
+    useEffect(() => {
+      fetchChatMessages();
+    }, []);
+
 
 
     useEffect(() => {
@@ -21,9 +47,8 @@ const Chat = () => {
       //As soon as the page loaded, the socket connection is made and joinChat event is emitted
       socket.emit("joinChat", {firstName: user?.data?.firstName, userId, targetUserId})
 
-      socket.on("messageRecieved", ({firstName, text, photoId, time}) => {
-          console.log(firstName + ": " + text);
-          setMessages((messages) => [...messages, {firstName, text, photoId, time}]);
+      socket.on("messageRecieved", ({firstName, lastName, text, photoId, time}) => {
+          setMessages((messages) => [...messages, {firstName,lastName, text, photoId, time}]);
       });
 
 
@@ -37,10 +62,11 @@ const Chat = () => {
       const socket = createSocketConnection();
       socket.emit("sendMessage", {
         firstName: user?.data?.firstName,
+        lastName: user?.data?.lastName,
         photoId: user?.data?.photoUrl,
         userId, targetUserId, 
         text: newMessage,
-        time});
+        });
         setNewMessage("");
     }
   
@@ -49,9 +75,11 @@ const Chat = () => {
       <h1 className='p-5 border-b border-gray-600'>Chat</h1>
       <div className='flex-1 overflow-scroll p-5'>
         {messages.map((msg, index) => {
+          const isSender = msg.firstName === user?.data?.firstName;
+
           return (
           <div>
-              <div className="chat chat-start">
+              <div key={index} className={`chat ${isSender ? "chat-end" : "chat-start"} mb-2`}>
         <div className="chat-image avatar">
           <div className="w-10 rounded-full">
             <img
@@ -61,7 +89,7 @@ const Chat = () => {
           </div>
         </div>
         <div className="chat-header">
-          {msg.firstName}
+          {`${msg.firstName}  ${msg.lastName}`}
           <time className="text-xs opacity-50">{msg.time}</time>
         </div>
         <div className="chat-bubble">{msg.text}</div>

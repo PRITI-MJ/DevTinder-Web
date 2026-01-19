@@ -173,6 +173,10 @@ Body
     - Build the UI for a chat wimdow on /chat/:targetUserId
     - Setup socket.io in backend
     - npm i socket.io
+    - setup frontend socket.io-client
+    - createSocketConnection
+    - Listen to events
+    
 
 
         
